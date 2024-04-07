@@ -100,7 +100,7 @@ def _beta_schedule(num_timesteps, schedule='linear', start=1e-5, end=0.999, max=
     if schedule == 'linear':
         betas = torch.linspace(start, end, num_timesteps)
     elif schedule == 'sohl-dickstein':
-        betas = torch.linspace(0,num_timesteps-1, num_timesteps)
+        betas = torch.linspace(1,num_timesteps, num_timesteps)
         betas = 1/(num_timesteps - betas + 1)
     elif schedule == "cosine":
         betas = torch.linspace(np.pi / 2, 0, num_timesteps)
